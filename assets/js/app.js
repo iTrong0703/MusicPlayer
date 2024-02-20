@@ -16,14 +16,21 @@ const prevBtn = $('.btn-prev');
 const randomBtn = $('.btn-random');
 const repeatBtn = $('.btn-repeat');
 const videoBg = $('#videoBg');
-const tLeft = $('.time-left');
-const tRight = $('.time-right');
+const timeLeft = $('.time-left');
+const timeRight = $('.time-right');
+const muteIcon = $('.icon-mute');
+const unmuteIcon = $('.icon-unmute');
+const volumeBar = $('.volume-bar');
+const cdProgressFull = $('.cd .circle .mask.full')
+const cdProgressFill = $$('.cd .circle .mask .fill')
+
 
 const app = {
     currentIndex: 0,
     isPlaying: false,
     isRandom: false,
     isRepeat: false,
+    currentVolume: 1,
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {}, // get data từ localStorage và chuyển về dạng OBJECT thông qua JSON.parse
 
     songs: [
@@ -240,10 +247,17 @@ const app = {
 
                 // Hiện time    
                 console.log(audio.duration);
-                tLeft.textContent = _this.formatTime(Math.floor(audio.currentTime));
-                tRight.textContent = _this.formatTime(Math.floor(audio.duration));
+                timeLeft.textContent = _this.formatTime(Math.floor(audio.currentTime));
+                timeRight.textContent = _this.formatTime(Math.floor(audio.duration));
                 progress.style.background = `linear-gradient(to right, var(--primary-color) ${progress.value / progress.max * 100}%, #4d4d4d ${progress.value / progress.max * 100}%)`;
             }
+
+            // fill vòng tròn sau đĩa nhạc
+            const percent = progress.value / 100 * 180;
+            cdProgressFull.style.transform = `rotate(${percent}deg)`;
+            cdProgressFill.forEach(fillElement => {
+                fillElement.style.transform = `rotate(${percent}deg)`;
+            });
 
             
         }
@@ -326,11 +340,62 @@ const app = {
                 } else {
                     console.log('option');
                 }
-
-                
-                
             }
         }
+
+        //Xử lý khi click vào nút volume
+
+        if (_this.currentVolume > 0) {
+            volumeBar.value = _this.currentVolume
+            audio.volume = _this.currentVolume
+            $('.icon-unmute').style.visibility = 'visible'
+            $('.icon-mute').style.visibility = 'hidden'
+        } else {
+            volumeBar.value = 0
+            audio.volume = 0
+            $('.icon-unmute').style.visibility = 'hidden'
+            $('.icon-mute').style.visibility = 'visible'
+        }
+        audio.onvolumechange = () => {
+            volumeBar.value = audio.volume
+            if (audio.volume === 0) {
+                muteIcon.style.visibility = 'visible'
+                unmuteIcon.style.visibility = 'hidden'
+            } else {
+                muteIcon.style.visibility = 'hidden'
+                unmuteIcon.style.visibility = 'visible'
+            }
+        }
+
+        volumeBar.oninput = e => {
+            this.setConfig("currentVolume", e.target.value)
+            audio.volume = volumeBar.value
+            volumeBar.setAttribute("title", "Âm lượng " + volumeBar.value * 100 + "%")
+        }
+
+        audio.onvolumechange = () => {
+            volumeBar.value = audio.volume
+            if (audio.volume === 0) {
+                muteIcon.style.visibility = 'visible';
+                unmuteIcon.style.visibility = 'hidden';
+            } else {
+                muteIcon.style.visibility = 'hidden';
+                unmuteIcon.style.visibility = 'visible';
+            }
+        }
+
+        muteIcon.onclick = (e) => {
+            audio.volume = this.config.savedVolume;
+            this.setConfig("currentVolume", audio.volume);
+        }
+
+        unmuteIcon.onclick = e => {
+            this.setConfig("savedVolume", audio.volume);
+            audio.volume = 0;
+            this.setConfig("currentVolume", audio.volume);
+        }
+
+        
     },
     reRender: function() {
         $$('.song').forEach((song, index) => { // duyệt qua và thêm class active vào bài hát hiện tại

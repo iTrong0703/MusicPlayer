@@ -3,6 +3,9 @@
     --white-color: #fff;
     --black-color: #000;
     --main-width: 405px;
+    --cd-dim: 210px;
+    --thumb-dim: 200px;
+    --c-width: 5px;
   }
   
   * {
@@ -95,16 +98,61 @@
   .cd {
     display: flex;
     margin: auto;
-    width: 200px;
+    /* width: 200px; */
+    flex-direction: row;
+    width: var(--cd-dim);
+    height: var(--cd-dim);
+    
+    border-radius: 50%;
+    background-color: rgba(143, 136, 136, 0.137);
   }
+
+  .cd .circle .mask,
+.cd .circle .fill {
+    width: var(--cd-dim);
+    height: var(--cd-dim);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.cd .circle .mask {
+    /* Cắt ra 1 nửa hình tròn và cố định để làm vị trí bắt đầu và kết thúc */
+    clip: rect(0px, var(--cd-dim), var(--cd-dim), calc(var(--cd-dim)/2));/* Dùng cho vui, chứ đã lỗi thời*/
+    /* Có thể thay thế bằng overflow, border-radius hoặc pseudo-elements */
+    /*take the half right*/
+
+}
+
+.cd .circle .mask .fill {
+    clip: rect(0px, calc(var(--cd-dim)/2), var(--cd-dim), 0px);/* Dùng cho vui, chứ đã lỗi thời*/
+    /* Có thể thay thế bằng overflow, border-radius hoặc pseudo-elements */
+    /*take the half left*/
+    background-color: var(--primary-color);
+}
+
+.cd .circle .mask.full,
+.cd .circle .mask .fill {
+    transform: rotate(0deg);
+}
+
   
   .cd-thumb {
-    width: 100%;
+    /* width: 100%;
     padding-top: 100%;
     border-radius: 50%;
     background-color: #333;
     background-size: cover;
-    margin: auto;
+    margin: auto; */
+
+    position: absolute;
+    width: var(--thumb-dim);
+    height: var(--thumb-dim);
+    margin-left: var(--c-width);
+    margin-top: var(--c-width);
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    z-index: 10;
   }
   
   /* CONTROL */
@@ -144,18 +192,19 @@
 
 .btn-volume {
   position: absolute;
-  right: 0;
+  right: 276px;
+  bottom: 30px;
 }
 
 .icon-unmute,
 .icon-mute {
-  /* position: absolute; */
+  position: absolute;
 }
 
   .volume-bar {
     position: absolute;
     transform: rotate(-90deg);
-    margin: -62px -78px;
+    margin: -65px -36px;
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
@@ -292,4 +341,30 @@
 {
 	background-color: #121212;
 	border: 1px solid #333;
+}
+
+.scrolling-text-container {
+  overflow: hidden;
+  /* Ẩn nội dung vượt quá kích thước của khung */
+  width: 405px;
+  /* Độ rộng của khung cuộn */
+}
+
+.scrolling-text {
+  white-space: nowrap;
+  /* Ngăn chữ xuống dòng */
+  animation: scrollText 10s linear infinite;
+  /* Sử dụng animation */
+}
+
+@keyframes scrollText {
+  0% {
+      transform: translateX(100%);
+      /* Bắt đầu từ phía bên phải */
+  }
+
+  100% {
+      transform: translateX(-100%);
+      /* Di chuyển sang bên trái */
+  }
 }
