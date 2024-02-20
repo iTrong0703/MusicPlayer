@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
 
     <link rel="shortcut icon" href="#"><!-- fix lỗi favicon 404-->
 </head>
@@ -16,7 +17,14 @@
     <div class="player">
         <!-- Dashboard -->
         <div class="dashboard">
-            <!-- Header -->
+            <div class="videoBg-container">
+                <video id="videoBg" muted loop>
+                    <source type="video/mp4" src="./assets/canvas/CanvasDownloader_Metro_Boomin_1708251614020.mp4">
+                </video>
+            </div>
+            
+            <div class="playerControls-container">
+                <!-- Header -->
             <header>
                 <h4>Now playing:</h4>
                 <h2>String 57th & 9th</h2>
@@ -28,7 +36,7 @@
             </div>
 
             <!-- Control -->
-            <div class="control">
+            <!-- <div class="control">
                 <div class="btn btn-repeat">
                     <i class="fas fa-redo"></i>
                 </div>
@@ -47,17 +55,56 @@
                 </div>
             </div>
 
-            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100"> -->
 
             <audio id="audio" src=""></audio>
+            </div>
+            
         </div>
 
+        
+        
         <!-- Playlist -->
         <div class="playlist">
             
         </div>
-    </div>
 
+        <div class="control-container">
+            <div class="progress-container">
+                <span class="time-left">-:--</span>
+                <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+                <span class="time-right">-:--</span>
+            </div>
+            
+            <!-- Control -->
+            <div class="control">
+                <div class="btn btn-repeat">
+                    <i class="fas fa-redo"></i>
+                </div>
+                <div class="btn btn-prev">
+                    <i class="fas fa-step-backward"></i>
+                </div>
+                <div class="btn btn-toggle-play">
+                    <i class="fas fa-pause icon-pause"></i>
+                    <i class="fas fa-play icon-play"></i>
+                </div>
+                <div class="btn btn-next">
+                    <i class="fas fa-step-forward"></i>
+                </div>
+                <div class="btn btn-random">
+                    <i class="fas fa-random"></i>
+                </div>
+                <div class="btn btn-volume">
+                    <i class="fas fa-volume-up icon-unmute" title="Tắt âm" style="visibility: visible;"></i>
+                    <i class="fas fa-volume-mute icon-mute" title="Bật âm" style="visibility: hidden;"></i>
+                    <input type="range" class="volume-bar" value="1" step="0.1" min="0" max="1" title="Âm lượng 40%">
+                </div>
+            </div>
+    
+            
+        </div>
+    </div>
+    
 
 
 <script src="./assets/js/app.js"></script>

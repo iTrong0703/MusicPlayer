@@ -15,6 +15,9 @@ const nextBtn = $('.btn-next');
 const prevBtn = $('.btn-prev');
 const randomBtn = $('.btn-random');
 const repeatBtn = $('.btn-repeat');
+const videoBg = $('#videoBg');
+const tLeft = $('.time-left');
+const tRight = $('.time-right');
 
 const app = {
     currentIndex: 0,
@@ -83,6 +86,54 @@ const app = {
             singer: 'Veridis Quo x In Your Eyes - The Weeknd',
             path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
             image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
+        },
+        {
+            name: 'Daft Punk',
+            singer: 'Veridis Quo x In Your Eyes - The Weeknd',
+            path: 'https://cf-media.sndcdn.com/GM7K2VhnFOuC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vR003SzJWaG5GT3VDLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA4MDEwOTQ2fX19XX0_&Signature=fR2iKZBX3JmisnW7lqz4msUIGCtY8jZ8eW318knkl3X2wgnoSZjykvLJ3nU-waSSdRQBsJ93-9lLn1tVsXWaFSpi7MTcs~EYfoLWkQRFpbx0OWe341fZUfi1dq~H~It2~xukaCosC1VIhvx7mcdRMlbU1MjkhIwwXHNzItcRQ-GHUqBBYEtnIKB7QBxingwXEHmRmZKyQ9oLnppxcngSCNmroC9J6UuVxTihyPTlqmfjWXazVHpRvruVxgUbJ0VIFFSk4sjNBMEO~2v~p~d9t5loAx8RvoCq-RK2bkMmfDK18kbgvJiVJCKpDrFD0NpeTUzSNyZ1Sa-bLjHpBAbEcg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
+            image: 'https://i1.sndcdn.com/artworks-MSHCvjbWzbhupEFF-rDrAGQ-t500x500.jpg'
         }
     ],
     playedSongs: [],
@@ -109,6 +160,13 @@ const app = {
         playlist.innerHTML = htmls.join('');
         randomBtn.classList.toggle("active", this.isRandom);
         repeatBtn.classList.toggle("active",  this.isRepeat);
+    },
+    formatTime: function(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainderSeconds = seconds % 60;
+        
+        const formattedTime = `${minutes}:${remainderSeconds.toString().padStart(2, '0')}`;
+        return formattedTime;
     },
     defineProperties: function() {
         Object.defineProperty(this, 'currentSong', {
@@ -138,21 +196,26 @@ const app = {
         // xử lý thu phóng đĩa nhạc
         document.onscroll = function() {
             // console.log(window.scrollY); //tuong tu console.log(document.documentElement.scrollTop);
-            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            if (window.innerWidth <= 739) {// chỉ áp dụng vs mobile
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
             
-            // Thu nhỏ đĩa cd nhạc
-            const newCdWidth = cdWidth - scrollTop;
-            cd.style.width = newCdWidth > 0 ? newCdWidth + 'px' : 0;// fix bug nếu lướt nhanh thì sẽ sinh ra giá trị âm dẫn đến, cd không thu nhỏ
-            cd.style.opacity = newCdWidth / cdWidth; // mờ dần khi nhỏ lại
+                // Thu nhỏ đĩa cd nhạc
+                const newCdWidth = cdWidth - scrollTop;
+                cd.style.width = newCdWidth > 0 ? newCdWidth + 'px' : 0;// fix bug nếu lướt nhanh thì sẽ sinh ra giá trị âm dẫn đến, cd không thu nhỏ
+                cd.style.opacity = newCdWidth / cdWidth; // mờ dần khi nhỏ lại
+           
+            }
         }
 
         //xử lý chơi nhạc
         playBtn.onclick = function() {
             if(_this.isPlaying) { // nếu đang playing thì pause
                 audio.pause();// https://www.w3schools.com/tags/ref_av_dom.asp
+                videoBg.pause();
                 cdThumbAnimate.pause(); // dừng quay đĩa nhạc
             } else {// nếu đang pause thì playing
                 audio.play();// https://www.w3schools.com/tags/ref_av_dom.asp
+                videoBg.play();
                 cdThumbAnimate.play(); // bắt đầu quay đĩa nhạc
             }
         }
@@ -174,7 +237,15 @@ const app = {
             if(audio.duration) { // loại bỏ trường hợp NaN
                 const progressPercent = Math.floor((audio.currentTime / audio.duration) * 100); // tính ra % đã chạy của bài hát (currentTime: giây hiện tại; duration: thời lượng bài hát)
                 progress.value = progressPercent;
+
+                // Hiện time    
+                console.log(audio.duration);
+                tLeft.textContent = _this.formatTime(Math.floor(audio.currentTime));
+                tRight.textContent = _this.formatTime(Math.floor(audio.duration));
+                progress.style.background = `linear-gradient(to right, var(--primary-color) ${progress.value / progress.max * 100}%, #4d4d4d ${progress.value / progress.max * 100}%)`;
             }
+
+            
         }
 
         //Lắng nghe xem người dùng tua đến đoạn nào
